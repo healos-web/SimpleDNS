@@ -2,5 +2,5 @@ development:
   adapter: postgresql
   encoding: unicode
   database: dns_development
-  password: <%= ENV['db_username'] %>
-  user: <%= ENV['db_password'] %>
+  password: <%= ENV['DB_USERNAME'] %>
+  user: <%= ENV['DB_PASSWORD'] %>

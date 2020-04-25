@@ -1,0 +1,39 @@
+.container.d-flex.flex-column
+  .w-50.mx-auto
+    .card.mt-5
+      .card-body
+        h4.card-title.text-center.mb-4 Get api address
+        input.form-control[placeholder="#{"Try \"some.domain.com\""}"]
+        .d-flex.flex-column.d-none
+          h5#lastResult
+          .text-body
+        button.w-50.btn-block.mx-auto.mt-3.btn.btn-warning Search
+    .card.mt-2
+      .card-body
+        .button-group.d-flex.flex-row.justify-content-between
+          button.btn.btn-warning.mr-3 type="button" Download csv file with records
+          button.btn.btn-warning type="button" Upload csv file with new records
+    .card.mt-2
+      .card-body
+        h4.card-title.text-center.mb-4 Add new record
+        form[action="/addresses" method='post']
+          .form-group
+            label for="hostNameInput" Host name  
+            input#hostNameInput.form-control[name="host_name" aria-describedby="hostNameInputHelp" required]
+            small#hostNameInputHelp.form-text Host name format is "label1.label2..." and each label can contain 7 characters max
+          .row
+            .form-group.col-6
+              label for="ttlInput" TTL
+              input#ttlInput.form-control[aria-describedby="ttlInputHelp" name="ttl" required]
+              small#ttlInputHelp.form-text[style=""] Number from 0 to 172800
+            .form-group.col-6
+              label for="recordType" Record Type
+              select#recordType.form-control[name="type"]
+                option A
+                option CNAME
+                option NX
+          .form-group
+            label for="recordInput" Record
+            input#recordInput.form-control[name="record" aria-describedby="recordInputHelp" required]
+            small#recordInputHelp.form-text Valid api address
+          button.btn.btn-warning[type="submit"] Submit

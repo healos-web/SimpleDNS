@@ -7,6 +7,14 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    'Hello, World!'
+    slim :home
+  end
+end
+
+class ApplicationControllerBase < Sinatra::Base
+  def self.inherited(subclass)
+    super
+
+    ApplicationController.use subclass
   end
 end
