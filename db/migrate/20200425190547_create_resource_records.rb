@@ -3,12 +3,12 @@ class CreateResourceRecords < ActiveRecord::Migration[6.0]
     enable_extension 'ltree'
 
     create_table :resource_records do |t|
-      t.ltree :name
-      t.integer :type
+      t.ltree :host_name
+      t.integer :record_type
       t.integer :ttl
-      t.string :record
+      t.string :record_value
 
-      t.index :name, using: :gist
+      t.index :host_name, using: :gist
     end
   end
 end

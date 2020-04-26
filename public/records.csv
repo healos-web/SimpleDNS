@@ -1,0 +1,3 @@
+Name,Type,TTL,Record
+postgresql.org,a,10000,68.197.2.41
+postgresql.org.com,cname,10000,test

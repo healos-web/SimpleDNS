@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 2020_04_25_190547) do
   enable_extension "plpgsql"
 
   create_table "resource_records", force: :cascade do |t|
-    t.ltree "name"
-    t.integer "type"
+    t.ltree "host_name"
+    t.integer "record_type"
     t.integer "ttl"
-    t.string "record"
-    t.index ["name"], name: "index_resource_records_on_name", using: :gist
+    t.string "record_value"
+    t.index ["host_name"], name: "index_resource_records_on_host_name", using: :gist
   end
 
 end

@@ -11,8 +11,10 @@
     .card.mt-2
       .card-body
         .button-group.d-flex.flex-row.justify-content-between
-          button.btn.btn-warning.mr-3 type="button" Download csv file with records
-          button.btn.btn-warning type="button" Upload csv file with new records
+          a.btn.btn-warning.mr-3[type="button" href="/addresses_csv_file" download]  Download csv file with records
+          form#uploadFileForm.d-none[enctype='multipart/form-data' action='/addresses_from_csv', method='post']
+            input#uploadFileFormInput[name="file" type="file" accept=".csv"]
+          button#uploadFileFormButton.btn.btn-warning type="button" Upload csv file with new records
     .card.mt-2
       .card-body
         h4.card-title.text-center.mb-4 Add new record
@@ -28,12 +30,28 @@
               small#ttlInputHelp.form-text[style=""] Number from 0 to 172800
             .form-group.col-6
               label for="recordType" Record Type
-              select#recordType.form-control[name="type"]
-                option A
-                option CNAME
-                option NX
+              select#recordType.form-control[name="record_type"]
+                option[value='a'] A
+                option[value='cname'] CNAME
+                option[value='nx'] NX
           .form-group
             label for="recordInput" Record
-            input#recordInput.form-control[name="record" aria-describedby="recordInputHelp" required]
+            input#recordInput.form-control[name="record_value" aria-describedby="recordInputHelp" required]
             small#recordInputHelp.form-text Valid api address
           button.btn.btn-warning[type="submit"] Submit
+
+javascript:
+  $('#recordType').on('change', (e) => {
+    if (e.target.value === 'A')
+      $('#recordInputHelp').text('Valid api address')
+    else
+      $('#recordInputHelp').text('Valid host name')
+  })
+
+  $('#uploadFileFormInput').on('change', (e) => {
+    $('#uploadFileForm').submit()
+  })
+
+  $('#uploadFileFormButton').click((e) => {
+    $('#uploadFileFormInput').click()
+  })

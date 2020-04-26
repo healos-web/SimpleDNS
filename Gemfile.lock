@@ -48,6 +48,8 @@ GEM
     sinatra-activerecord (2.0.18)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     slim (4.0.1)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -74,6 +76,7 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-activerecord
+  sinatra-flash
   slim
 
 BUNDLED WITH
