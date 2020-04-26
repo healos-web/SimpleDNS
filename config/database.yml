@@ -2,6 +2,6 @@ development:
   adapter: postgresql
   encoding: unicode
   database: dns_development
-  host : <%= ENV['DB_HOST'] || db_simple_dns %>
+  host : <%= ENV['DB_HOST'] %>
   password: <%= ENV['DB_USERNAME'] %>
   user: <%= ENV['DB_PASSWORD'] %>
