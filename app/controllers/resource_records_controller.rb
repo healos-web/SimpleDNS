@@ -1,5 +1,8 @@
 class ResourceRecordsController < ApplicationControllerBase
   get '/addresses/:host_name' do
+    record = ResourceRecord.find_by(host_name: params[:host_name])
+
+    json record: record.record_value
   end
 
   get '/addresses_csv_file' do

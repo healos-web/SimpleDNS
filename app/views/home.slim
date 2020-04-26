@@ -3,11 +3,9 @@
     .card.mt-5
       .card-body
         h4.card-title.text-center.mb-4 Get api address
-        input.form-control[placeholder="#{"Try \"some.domain.com\""}"]
-        .d-flex.flex-column.d-none
-          h5#lastResult
-          .text-body
-        button.w-50.btn-block.mx-auto.mt-3.btn.btn-warning Search
+        input#getRecordValueInput.form-control[placeholder="#{"Try \"some.domain.com\""}"]
+        h5#lastResult.mt-3.text-center[style="color: white"]
+        button#getRecordValueButton.w-50.btn-block.mx-auto.mt-3.btn.btn-warning Search
     .card.mt-2
       .card-body
         .button-group.d-flex.flex-row.justify-content-between
@@ -54,4 +52,12 @@ javascript:
 
   $('#uploadFileFormButton').click((e) => {
     $('#uploadFileFormInput').click()
+  })
+
+  $('#getRecordValueButton').click(() => {
+    const hostName = $('#getRecordValueInput').val()
+    if (hostName.length)
+      $.get(`/addresses/${hostName}`).done((resp) => {
+        $('#lastResult').text(resp.record)
+      })
   })
