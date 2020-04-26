@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'sinatra-contrib'
+gem 'sinatra-contrib', require: false
 gem 'activerecord', require: 'active_record'
 gem 'sinatra-activerecord', require: 'sinatra/activerecord'
 gem 'rake'
@@ -14,6 +14,7 @@ gem 'shotgun'
 gem 'bcrypt'
 gem 'dotenv'
 gem 'slim'
+gem 'redis'
 
 group :development, :test do 
   gem 'pry'

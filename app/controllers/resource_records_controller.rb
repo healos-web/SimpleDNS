@@ -1,8 +1,20 @@
+require 'net/http'
+require 'sinatra/contrib'
+
 class ResourceRecordsController < ApplicationControllerBase
   get '/addresses/:host_name' do
     record = ResourceRecord.find_by(host_name: params[:host_name])
 
-    json record: record.record_value
+    data = if record
+      record.record_value
+    else
+      Cache.fetch(params[:host_name], 1000) do
+        resp = JSON.parse(Net::HTTP.get(URI("https://dns.google/resolve?name=#{params[:host_name]}")))
+        resp['Answer'].first['data']
+      end
+    end
+
+    json record: data
   end
 
   get '/addresses_csv_file' do
