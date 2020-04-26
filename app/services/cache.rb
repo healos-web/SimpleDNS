@@ -1,5 +1,5 @@
 class Cache
-  @redis = Redis.new
+  @redis = Redis.new(host: ENV['REDIS_HOST'])
 
   class << self
     attr_reader :redis
