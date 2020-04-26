@@ -1,5 +1,5 @@
 require 'net/http'
-require 'sinatra/contrib'
+require "sinatra/json"
 
 class ResourceRecordsController < ApplicationControllerBase
   get '/addresses/:host_name' do
