@@ -20,7 +20,7 @@ There is present simple dashboard to test DNS server, it includes following func
 There is present `docker-compose.yml` file in `/docker` folder to you be able to start project as fast as possible. To do it, please follow the instructions below:  
   1) `cd ./simpleDNS/docker`  
   2) create `.env` file with following variables (this example for development docker-compose)  
-    **DB_USERNAME**=postgres
+    **DB_USERNAME**=postgres  
     **DB_PASSWORD**=postgres  
     **DB_HOST**=db_simple_dns  
     **REDIS_HOST**=cache_storage_simple_dns  
