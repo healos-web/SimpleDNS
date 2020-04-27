@@ -25,4 +25,5 @@ There is present `docker-compose.yml` file in `/docker` folder to you be able to
     **DB_HOST**=db_simple_dns  
     **REDIS_HOST**=cache_storage_simple_dns  
   3) `docker-compose up`  
+  4) Open `localhost:3000` to see app  
 And make sure you have installed docker and docker-compose on you machine 
